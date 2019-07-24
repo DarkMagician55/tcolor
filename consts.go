@@ -106,3 +106,10 @@ const (
 func (c Color) String() string {
 	return fmt.Sprintf("%d", c)
 }
+
+// Render messages by color setting
+// Usage:
+// 		fmt.Println(color.FgGreen.Render("message"))
+func (c Color) Render(a string) string {
+	return Render(c, a)
+}
