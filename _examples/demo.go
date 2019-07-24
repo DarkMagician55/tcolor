@@ -6,8 +6,6 @@ import (
 )
 
 func main() {
-	//fmt.Println(tcolor.Red("red msg"))
-	fmt.Println(tcolor.Render(tcolor.Red, "red msg"))
-	fmt.Println(tcolor.Render(tcolor.Blue, "blue msg"))
 	fmt.Println(tcolor.Blue.Render("blue msg"))
+	fmt.Println(tcolor.NewTColor(tcolor.FgGreen, tcolor.BgBlue).Render("blue msg"))
 }

@@ -8,9 +8,32 @@ const (
 	FullColorTpl = "\x1b[%sm%s\x1b[0m"
 )
 
-type Env struct {
-	env string
-}
+//todo windows
+//var env  = "linux"
+
+//// There are basic and light foreground color aliases
+var (
+	Red     = TColor{FgRed, 0, 0}
+	Cyan    = TColor{FgCyan, 0, 0}
+	Gray    = TColor{FgDarkGray, 0, 0}
+	Blue    = TColor{FgBlue, 0, 0}
+	Black   = TColor{FgBlack, 0, 0}
+	Green   = TColor{FgGreen, 0, 0}
+	White   = TColor{FgWhite, 0, 0}
+	Yellow  = TColor{FgYellow, 0, 0}
+	Magenta = TColor{FgMagenta, 0, 0}
+	// special
+	Bold   = TColor{OpBold, 0, 0}
+	Normal = TColor{FgDefault, 0, 0}
+	// extra light
+	LightRed     = TColor{FgLightRed, 0, 0}
+	LightCyan    = TColor{FgLightCyan, 0, 0}
+	LightBlue    = TColor{FgLightBlue, 0, 0}
+	LightGreen   = TColor{FgLightGreen, 0, 0}
+	LightWhite   = TColor{FgLightWhite, 0, 0}
+	LightYellow  = TColor{FgLightYellow, 0, 0}
+	LightMagenta = TColor{FgLightMagenta, 0, 0}
+)
 
 type TColor struct {
 	FgColor Color
@@ -22,23 +45,20 @@ func NewTColor(color ...Color) TColor {
 	switch len(color) {
 	case 1:
 		return TColor{FgColor: color[0]}
+	case 2:
+		return TColor{FgColor: color[0], BgColor: color[1]}
+	case 3:
+		return TColor{FgColor: color[0], BgColor: color[1], Op: color[2]}
 	default:
 		return TColor{}
 	}
 }
 
-func (c *TColor) Render(msg string) string {
+// Render messages by color setting
+// Usage:
+// 		fmt.Println(color.FgGreen.Render("message"))
+func (c TColor) Render(msg string) string {
 	return fmt.Sprintf(FullColorTpl, c.Code(), msg)
-}
-
-//func Red(msg string) string {
-//	c := NewTColor(FgRed)
-//	return c.Render(msg)
-//}
-
-func Render(fg Color, msg string) string {
-	c := NewTColor(fg)
-	return c.Render(msg)
 }
 
 func (c TColor) Code() string {

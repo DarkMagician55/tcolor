@@ -78,38 +78,7 @@ const (
 	OpStrikethrough              // 9 删除的，删除线(未广泛支持)
 )
 
-//// There are basic and light foreground color aliases
-const (
-	Red     = FgRed
-	Cyan    = FgCyan
-	Gray    = FgDarkGray // is light Black
-	Blue    = FgBlue
-	Black   = FgBlack
-	Green   = FgGreen
-	White   = FgWhite
-	Yellow  = FgYellow
-	Magenta = FgMagenta
-	// special
-	Bold   = OpBold
-	Normal = FgDefault
-	// extra light
-	LightRed     = FgLightRed
-	LightCyan    = FgLightCyan
-	LightBlue    = FgLightBlue
-	LightGreen   = FgLightGreen
-	LightWhite   = FgLightWhite
-	LightYellow  = FgLightYellow
-	LightMagenta = FgLightMagenta
-)
-
 // String to code string. eg "35"
 func (c Color) String() string {
 	return fmt.Sprintf("%d", c)
-}
-
-// Render messages by color setting
-// Usage:
-// 		fmt.Println(color.FgGreen.Render("message"))
-func (c Color) Render(a string) string {
-	return Render(c, a)
 }
