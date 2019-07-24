@@ -79,28 +79,28 @@ const (
 )
 
 //// There are basic and light foreground color aliases
-//const (
-//	Red     = FgRed
-//	Cyan    = FgCyan
-//	Gray    = FgDarkGray // is light Black
-//	Blue    = FgBlue
-//	Black   = FgBlack
-//	Green   = FgGreen
-//	White   = FgWhite
-//	Yellow  = FgYellow
-//	Magenta = FgMagenta
-//	// special
-//	Bold   = OpBold
-//	Normal = FgDefault
-//	// extra light
-//	LightRed     = FgLightRed
-//	LightCyan    = FgLightCyan
-//	LightBlue    = FgLightBlue
-//	LightGreen   = FgLightGreen
-//	LightWhite   = FgLightWhite
-//	LightYellow  = FgLightYellow
-//	LightMagenta = FgLightMagenta
-//)
+const (
+	Red     = FgRed
+	Cyan    = FgCyan
+	Gray    = FgDarkGray // is light Black
+	Blue    = FgBlue
+	Black   = FgBlack
+	Green   = FgGreen
+	White   = FgWhite
+	Yellow  = FgYellow
+	Magenta = FgMagenta
+	// special
+	Bold   = OpBold
+	Normal = FgDefault
+	// extra light
+	LightRed     = FgLightRed
+	LightCyan    = FgLightCyan
+	LightBlue    = FgLightBlue
+	LightGreen   = FgLightGreen
+	LightWhite   = FgLightWhite
+	LightYellow  = FgLightYellow
+	LightMagenta = FgLightMagenta
+)
 
 // String to code string. eg "35"
 func (c Color) String() string {
