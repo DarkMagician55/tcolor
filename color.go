@@ -68,7 +68,7 @@ func (c TColor) Println(msg string) {
 
 func (c TColor) Code() string {
 	if c.Op != 0 {
-		return fmt.Sprintf("%d;%d,%d", c.FgColor, c.BgColor, c.Op)
+		return fmt.Sprintf("%d;%d;%d", c.FgColor, c.BgColor, c.Op)
 	} else if c.BgColor != 0 {
 		return fmt.Sprintf("%d;%d", c.FgColor, c.BgColor)
 	} else {
