@@ -5,7 +5,8 @@ import (
 )
 
 const (
-	FullColorTpl = "\x1b[%sm%s\x1b[0m"
+	FullColorTpl   = "\x1b[%sm%s\x1b[0m"
+	FullColorTplLn = "\x1b[%sm%s\x1b[0m\n"
 )
 
 //todo windows
@@ -59,6 +60,10 @@ func NewTColor(color ...Color) TColor {
 // 		fmt.Println(color.FgGreen.Render("message"))
 func (c TColor) Render(msg string) string {
 	return fmt.Sprintf(FullColorTpl, c.Code(), msg)
+}
+
+func (c TColor) Println(msg string) {
+	fmt.Printf(FullColorTplLn, c.Code(), msg)
 }
 
 func (c TColor) Code() string {

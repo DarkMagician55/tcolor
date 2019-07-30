@@ -7,5 +7,5 @@ import (
 
 func main() {
 	fmt.Println(tcolor.Blue.Render("blue msg"))
-	fmt.Println(tcolor.NewTColor(tcolor.FgGreen, tcolor.BgBlue).Render("blue msg"))
+	tcolor.NewTColor(tcolor.FgGreen, tcolor.BgBlue).Println("blue msg")
 }
